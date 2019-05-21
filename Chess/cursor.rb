@@ -88,5 +88,12 @@ class Cursor
   end
 
   def update_pos(diff)
+    @cursor.map!.with_index do |pos, idx1|
+      diff.each_with_index do |move, idx2|
+        if idx1 == idx2
+          pos + move
+        end
+      end
+    end
   end
 end
